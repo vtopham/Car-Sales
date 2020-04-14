@@ -9,6 +9,8 @@ const mapStateToProps = state => {
 }
 
 const AddedFeature = props => {
+
+  
   
   return (
     <li>

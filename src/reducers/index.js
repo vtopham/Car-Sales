@@ -21,7 +21,6 @@ export const reducer = (state = defaultState, action) => {
     
     switch(action.type) {
         case ADD_FEATURE:
-        console.log(state)
             return {
                 ...state,
                 car: {
@@ -31,7 +30,7 @@ export const reducer = (state = defaultState, action) => {
                         action.payload.newFeature
                     ]
                 },
-                // additionalPrice: state.additionalPrice + action.payload.additionalPrice
+                additionalPrice: state.additionalPrice + action.payload.additionalPrice
             }
 
         default: 

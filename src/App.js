@@ -22,10 +22,8 @@ const App = (props) => {
   };
 
   
-  const buyItem = event => {
-    event.preventDefault()
-    // reducer(props.state, addFeature())
-    props.addFeature(1)
+  const buyItem = id => {
+    props.addFeature(id)
   }
 
   return (
