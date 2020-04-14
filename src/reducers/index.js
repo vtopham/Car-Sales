@@ -1,5 +1,6 @@
 import React from 'react'
 import { ADD_FEATURE } from '../actions/addFeature'
+import { REMOVE_FEATURE } from '../actions/removeFeature'
 
 const defaultState = {
     additionalPrice: 0,
@@ -32,7 +33,18 @@ export const reducer = (state = defaultState, action) => {
                 },
                 additionalPrice: state.additionalPrice + action.payload.additionalPrice
             }
-
+        case REMOVE_FEATURE:
+            const featuresAfterRemoval = state.car.features.filter(item => {
+                return item.id != action.payload.id
+            })
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: featuresAfterRemoval
+                },
+                additionalPrice: state.additionalPrice - action.payload.price
+            }
         default: 
             return state
     }

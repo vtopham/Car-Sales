@@ -15,7 +15,6 @@ const AdditionalFeature = props => {
 
   const handleBuy = event => {
     event.preventDefault()
-    console.log(event.target)
     buyItem(props.feature)
   }
 

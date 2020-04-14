@@ -5,6 +5,7 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 import { addFeature } from './actions/addFeature'
+import { removeFeature } from './actions/removeFeature'
 import { connect } from 'react-redux'
 
 
@@ -16,9 +17,9 @@ const mapStateToProps = state => {
 
 const App = (props) => {
 
-  const removeFeature = event => {
+  const removeAddedFeature = feature => {
     // dispatch an action here to remove an item
-    event.preventDefault()
+    props.removeFeature(feature)
   };
 
   
@@ -30,7 +31,7 @@ const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header/>
-        <AddedFeatures/>
+        <AddedFeatures removeAddedFeature = {removeAddedFeature}/>
       </div>
       <div className="box">
         <AdditionalFeatures buyItem = {buyItem}/>
@@ -40,4 +41,4 @@ const App = (props) => {
   );
 };
 
-export default connect(mapStateToProps, {addFeature})(App);
+export default connect(mapStateToProps, {addFeature, removeFeature})(App);
